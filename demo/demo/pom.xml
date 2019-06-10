@@ -73,23 +73,41 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- junit plugin -->
+
+			<!-- surefire (unit testing) plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
+				<configuration>
+					<argLine>${surefireArgLine}</argLine>
+				</configuration>
 				<dependencies>
+						<!-- junit dependency -->
 					<dependency>
 						<groupId>org.apache.maven.surefire</groupId>
 						<artifactId>surefire-junit4</artifactId>
 						<version>2.22.0</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+
+			<!-- failsafe (integration test) plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M3</version>
 				<configuration>
-					<includes>
-						<include>**/*.java</include>
-					</includes>
+					<argLine>${failsafeArgLine}</argLine>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- JaCoCo plugin -->
@@ -97,20 +115,53 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.4</version>
+				<!-- Unit Test Report -->
 				<executions>
+				  <execution>
+						<id>pre-unit-testing</id>
+				    <goals>
+				      <goal>prepare-agent</goal>
+				    </goals>
+						<configuration>
+							<destFile>${project.build.directory}/coverage-reports/jacoco-unit-tests.exec</destFile>
+							<propertyName>surefireArgLine</propertyName>
+						</configuration>
+				  </execution>
+				  <execution>
+				    <id>post-unit-testing</id>
+				    <phase>test</phase>
+				    <goals>
+				      <goal>report</goal>
+				    </goals>
+						<configuration>
+							<dataFile>${project.build.directory}/coverage-reports/jacoco-unit-tests.exec</dataFile>
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-unit-tests</outputDirectory>
+						</configuration>
+				  </execution>
+
+				<!-- Integration Test Report -->
 				  <execution>
 				    <goals>
 				      <goal>prepare-agent</goal>
 				    </goals>
+						<configuration>
+							<destFile>${project.build.directory}/coverage-reports/jacoco-it-tests.exec</destFile>
+							<propertyName>failsafeArgLine</propertyName>
+						</configuration>
 				  </execution>
 				  <execution>
-				    <id>report</id>
-				    <phase>prepare-package</phase>
+				    <id>it-test-report</id>
+				    <phase>post-integration-test</phase>
 				    <goals>
 				      <goal>report</goal>
 				    </goals>
+						<configuration>
+							<dataFile>${project.build.directory}/coverage-reports/jacoco-it-tests.exec</dataFile>
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-it-tests</outputDirectory>
+						</configuration>
 				  </execution>
 				</executions>
+
 			</plugin>
 
 		</plugins>
