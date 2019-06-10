@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalcController{
 
-  private static final String template="Hello, %s!";
+  private static final String template="Hello %s";
   private int counter=0;
 
   //greeting on startup
@@ -23,7 +23,7 @@ public class CalcController{
     double numX=Integer.parseInt(x);
     double numY=Integer.parseInt(y);
     double result=numX+numY;
-    return new Equation(numX, numY, result);
+    return new Equation(x, y, Double.toString(result));
   }
 
   //subtraction
@@ -32,7 +32,7 @@ public class CalcController{
     double numX=Integer.parseInt(x);
     double numY=Integer.parseInt(y);
     double result=numX-numY;
-    return new Equation(numX, numY, result);
+    return new Equation(x, y, Double.toString(result));
   }
 
   //multiplication
@@ -41,7 +41,7 @@ public class CalcController{
     double numX=Integer.parseInt(x);
     double numY=Integer.parseInt(y);
     double result=numX*numY;
-    return new Equation(numX, numY, result);
+    return new Equation(x, y, Double.toString(result));
   }
 
   //division
@@ -50,7 +50,7 @@ public class CalcController{
     double numX=Integer.parseInt(x);
     double numY=Integer.parseInt(y);
     double result=numX/numY;
-    return new Equation(numX, numY, result);
+    return new Equation(x, y, Double.toString(result));
   }
 
   //error for all other requests

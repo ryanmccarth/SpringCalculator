@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-demo,com.example.demo,Greeting,15,0,0,0,6,0,3,0,3,0
-demo,com.example.demo,CalcController,98,6,0,0,19,2,6,1,6,1
+demo,com.example.demo,Greeting,0,15,0,0,0,6,0,3,0,3
+demo,com.example.demo,CalcController,42,66,0,0,9,12,3,4,3,4
 demo,com.example.demo,DemoApplication,8,3,0,0,3,1,1,1,1,1
-demo,com.example.demo,Equation,121,21,12,0,0,2,10,4,4,4
+demo,com.example.demo,Equation,145,21,30,0,0,2,19,4,4,4
