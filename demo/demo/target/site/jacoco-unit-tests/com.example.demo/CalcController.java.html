@@ -38,19 +38,19 @@ import org.springframework.web.bind.annotation.RestController;
   //multiplication
   @RequestMapping(&quot;/mult&quot;)
   public Equation multiplication(@RequestParam(defaultValue=&quot;0&quot;)String x, @RequestParam(defaultValue=&quot;0&quot;)String y){
-<span class="nc" id="L41">    double numX=Integer.parseInt(x);</span>
-<span class="nc" id="L42">    double numY=Integer.parseInt(y);</span>
-<span class="nc" id="L43">    double result=numX*numY;</span>
-<span class="nc" id="L44">    return new Equation(x, y, Double.toString(result));</span>
+<span class="fc" id="L41">    double numX=Integer.parseInt(x);</span>
+<span class="fc" id="L42">    double numY=Integer.parseInt(y);</span>
+<span class="fc" id="L43">    double result=numX*numY;</span>
+<span class="fc" id="L44">    return new Equation(x, y, Double.toString(result));</span>
   }
 
   //division
   @RequestMapping(&quot;/div&quot;)
   public Equation division(@RequestParam(defaultValue=&quot;0&quot;)String x, @RequestParam(defaultValue=&quot;1&quot;)String y){
-<span class="nc" id="L50">    double numX=Integer.parseInt(x);</span>
-<span class="nc" id="L51">    double numY=Integer.parseInt(y);</span>
-<span class="nc" id="L52">    double result=numX/numY;</span>
-<span class="nc" id="L53">    return new Equation(x, y, Double.toString(result));</span>
+<span class="fc" id="L50">    double numX=Integer.parseInt(x);</span>
+<span class="fc" id="L51">    double numY=Integer.parseInt(y);</span>
+<span class="fc" id="L52">    double result=numX/numY;</span>
+<span class="fc" id="L53">    return new Equation(x, y, Double.toString(result));</span>
   }
 
   //error for all other requests
