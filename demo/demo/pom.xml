@@ -164,6 +164,13 @@
 
 			</plugin>
 
+			<!-- Sonar plugin -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+
 		</plugins>
 	</build>
 
