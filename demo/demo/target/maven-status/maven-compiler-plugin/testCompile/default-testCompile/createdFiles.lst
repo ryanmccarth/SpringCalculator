@@ -1,3 +1,4 @@
-com\example\demo\EquationTest.class
-com\example\demo\SampleIT.class
 com\example\demo\GreetingTest.class
+com\example\demo\EquationTest.class
+com\example\demo\GreetingIT.class
+com\example\demo\EquationIT.class
