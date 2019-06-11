@@ -17,6 +17,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.coverage.jacoco.xmlReportPaths>
+				C:\Users\ryanm\Documents\GitHub\SpringCalculator\demo\demo\target\site\jacoco-unit-tests,
+				C:\Users\ryanm\Documents\GitHub\SpringCalculator\demo\demo\target\site\jacoco-it-tests
+		</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
 	<dependencies>
